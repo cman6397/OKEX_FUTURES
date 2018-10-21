@@ -45,7 +45,6 @@ class okex():
         self.set_header()
 
         response = requests.get(self.route, headers=self.header).json()
-        
         return response
 
     def parse_params_to_str(self,params):
