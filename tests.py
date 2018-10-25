@@ -38,7 +38,7 @@ def add_remove_coin():
 		print('FAILED: Coin Add Submission Error')
 		traceback.print_exc()
 
-	coin_query = db.session.query(Coin_Price).filter(btc_price.instrument == 'test')
+	coin_query = db.session.query(Coin_Price).filter(Coin_Price.instrument == 'test')
 	coin_price = coin_query.first()
 
 	try:
@@ -60,9 +60,14 @@ def add_remove_coin():
 	except Exception:
 		print('FAILED: Coin Delete Error')
 
+def check_load():
+	coin_query = db.session.query(Coin_Price).filter(Coin_Price.instrument == 'BTC-USDT')
+	print(coin_query.all(),len(coin_query.all()))
+
 
 if __name__ == '__main__':
 	rest_bitcoin()
 	add_remove_coin()
+	check_load()
 
 

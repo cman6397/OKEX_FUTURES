@@ -10,7 +10,7 @@ bitcoin = okex(bitcoin_price,method)
 data = bitcoin.get()
 
 btc_price = Coin_Price()
-btc_price.instrument = 'test'
+btc_price.instrument = data['instrument_id']
 btc_price.best_ask = data['best_ask']
 btc_price.best_bid = data['best_bid']
 btc_price.last_price = data['last']
